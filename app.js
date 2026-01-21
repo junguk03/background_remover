@@ -1,4 +1,4 @@
-import removeBackground from 'https://cdn.skypack.dev/@imgly/background-removal@1.4.5';
+import imglyRemoveBackground from 'https://esm.sh/@imgly/background-removal@1.4.5';
 
 // DOM 요소
 const uploadSection = document.getElementById('uploadSection');
@@ -74,11 +74,11 @@ function handleFile(file) {
     reader.readAsDataURL(file);
 
     // 배경 제거 실행
-    removeBackground(file);
+    processImage(file);
 }
 
 // 배경 제거
-async function removeBackground(file) {
+async function processImage(file) {
     try {
         // 로딩 UI 초기화
         loading.style.display = 'block';
@@ -87,7 +87,7 @@ async function removeBackground(file) {
         progress.style.width = '0%';
 
         // 배경 제거 실행
-        const blob = await removeBackground(file, {
+        const blob = await imglyRemoveBackground(file, {
             progress: (key, current, total) => {
                 // 진행률 업데이트
                 const percentage = Math.round((current / total) * 100);
