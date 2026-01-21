@@ -1,3 +1,5 @@
+import removeBackground from 'https://cdn.skypack.dev/@imgly/background-removal@1.4.5';
+
 // DOM 요소
 const uploadSection = document.getElementById('uploadSection');
 const processSection = document.getElementById('processSection');
@@ -85,7 +87,7 @@ async function removeBackground(file) {
         progress.style.width = '0%';
 
         // 배경 제거 실행
-        const blob = await window.imglyRemoveBackground(file, {
+        const blob = await removeBackground(file, {
             progress: (key, current, total) => {
                 // 진행률 업데이트
                 const percentage = Math.round((current / total) * 100);
