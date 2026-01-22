@@ -86,8 +86,13 @@ async function processImage(file) {
         downloadBtn.disabled = true;
         progress.style.width = '0%';
 
-        // 배경 제거 실행
+        // 배경 제거 실행 (고품질 모델 사용)
         const blob = await imglyRemoveBackground(file, {
+            model: 'large',
+            output: {
+                quality: 1,
+                format: 'image/png'
+            },
             progress: (key, current, total) => {
                 // 진행률 업데이트
                 const percentage = Math.round((current / total) * 100);

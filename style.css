@@ -237,3 +237,9 @@ footer p {
     color: #666;
     font-size: 0.9rem;
 }
+
+footer .hint {
+    margin-top: 8px;
+    font-size: 0.75rem;
+    color: #555;
+}
