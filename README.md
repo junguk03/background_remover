@@ -1,48 +1,91 @@
-# BG Remover
+# 🖼️ AI 배경 제거기
 
-AI-powered background removal tool that runs entirely in your browser.
+브라우저에서 AI를 이용해 이미지 배경을 자동으로 제거하는 무료 온라인 도구입니다.
 
-## Features
+## 주요 기능
 
-- **AI Background Removal** - Automatically detects and removes backgrounds using machine learning
-- **Privacy First** - All processing happens locally in your browser. No images are uploaded to any server
-- **Multiple Formats** - Supports PNG, JPG, and WEBP images (up to 10MB)
-- **Drag & Drop** - Simple drag and drop interface
-- **Transparent PNG Export** - Download results as transparent PNG
+### 1. AI 자동 배경 제거
+- 머신러닝 모델이 이미지에서 배경을 자동으로 인식하고 제거
+- 사람, 동물, 사물 등 다양한 피사체 지원
+- 복잡한 배경도 깔끔하게 처리
 
-## Demo
+### 2. 완전한 개인정보 보호
+- **모든 처리가 브라우저에서 진행됩니다**
+- 이미지가 서버로 전송되지 않음
+- 인터넷 연결은 최초 모델 다운로드 시에만 필요
 
-[Live Demo](https://junguk03.github.io/background_remover/)
+### 3. 간편한 사용법
+| 단계 | 설명 |
+|------|------|
+| 1 | 이미지를 드래그하거나 클릭해서 업로드 |
+| 2 | AI가 자동으로 배경 분석 및 제거 |
+| 3 | 결과 확인 후 투명 PNG로 다운로드 |
 
-## Tech Stack
+### 4. 지원 파일 형식
+- **PNG** - 투명 배경 이미지
+- **JPG/JPEG** - 일반 사진
+- **WEBP** - 웹 최적화 이미지
+- 최대 파일 크기: **10MB**
 
-- Vanilla JavaScript (ES Modules)
-- [@imgly/background-removal](https://github.com/imgly/background-removal-js) - Client-side AI model
-- HTML5 / CSS3
+### 5. 실시간 진행률 표시
+- 모델 다운로드 진행률
+- 배경 분석 진행률
+- 처리 완료 시 자동으로 결과 표시
 
-## Usage
+## 사용 팁
 
-1. Open the website
-2. Upload an image (drag & drop or click)
-3. Wait for AI processing
-4. Download the result
+- **첫 사용 시**: AI 모델(약 40MB)이 다운로드됩니다. 이후에는 캐시되어 빠르게 작동합니다.
+- **최적의 결과**: 피사체와 배경의 구분이 명확한 이미지에서 가장 좋은 결과를 얻을 수 있습니다.
+- **고해상도 이미지**: 큰 이미지도 처리 가능하지만, 처리 시간이 더 걸릴 수 있습니다.
 
-> **Note:** First use downloads the AI model (~40MB). It's cached for future use.
+## 기술 스택
 
-## Local Development
+- **HTML5**: 시맨틱 마크업, 드래그 앤 드롭 API
+- **CSS3**: 반응형 디자인, 체크무늬 배경(투명 표시용)
+- **JavaScript (ES Modules)**: 비동기 처리, Blob/URL API
+- **[@imgly/background-removal](https://github.com/imgly/background-removal-js)**: 클라이언트 사이드 AI 모델
 
-```bash
-# Option 1: Python
-python -m http.server 8000
+## 파일 구조
 
-# Option 2: Node.js
-npx serve
-
-# Option 3: VS Code Live Server extension
+```
+배경 제거기/
+├── index.html      # 메인 HTML 파일
+├── style.css       # 스타일시트
+├── app.js          # JavaScript 로직 (ES Module)
+└── README.md       # 프로젝트 설명
 ```
 
-Then open `http://localhost:8000`
+## 로컬 개발
 
-## License
+이 프로젝트는 ES Modules를 사용하므로 로컬 서버가 필요합니다.
 
-MIT
+```bash
+# Python 사용
+python -m http.server 8000
+
+# Node.js 사용
+npx serve
+
+# VS Code Live Server 확장 프로그램 사용
+```
+
+이후 `http://localhost:8000` 접속
+
+## 브라우저 지원
+
+- Chrome (권장)
+- Firefox
+- Safari
+- Edge
+
+## 문제 해결
+
+| 문제 | 해결 방법 |
+|------|-----------|
+| 모델 로딩이 오래 걸림 | 첫 사용 시 약 40MB 다운로드 필요. 이후에는 캐시됨 |
+| 처리 실패 | 페이지 새로고침(Ctrl+Shift+R) 후 다시 시도 |
+| 결과가 부정확함 | 피사체와 배경 구분이 명확한 이미지 사용 권장 |
+
+## 라이선스
+
+이 프로젝트는 자유롭게 사용, 수정, 배포할 수 있습니다.
